@@ -20,32 +20,32 @@ const UserSchema = new mongoose.Schema(
       required: [true, 'Please provide password'],
       min: 6,
     },
-    passwordConfirm: {
-      type: String,
-      required: [true, 'Please confirm password'],
-      min: 6,
-    },
-    profilePicture: {
-      type: String,
-      default: '',
-    },
-    coverPicture: {
-      type: String,
-      default: '',
-    },
-    followers: {
-      type: Array,
-      default: [],
-    },
-    followings: {
-      type: Array,
-      default: [],
-    },
-    role: {
-      type: String,
-      enum: ['user', 'admin'],
-      default: 'user',
-    },
+    // passwordConfirm: {
+    //   type: String,
+    //   required: [true, 'Please confirm password'],
+    //   min: 6,
+    // },
+    // profilePicture: {
+    //   type: String,
+    //   default: '',
+    // },
+    // coverPicture: {
+    //   type: String,
+    //   default: '',
+    // },
+    // followers: {
+    //   type: Array,
+    //   default: [],
+    // },
+    // followings: {
+    //   type: Array,
+    //   default: [],
+    // },
+    // role: {
+    //   type: String,
+    //   enum: ['user', 'admin'],
+    //   default: 'user',
+    // },
   },
   { timestamps: true }
 );
