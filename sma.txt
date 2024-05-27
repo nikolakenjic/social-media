@@ -1,0 +1,10 @@
+- user profile: da useri mogu kreirati profile sa personalnim informacijama
+- news feed: neki flow za postavljanje postova, fotografija, statusa... i slicno tome
+- interaktivnost: tipa komentari, lajkovi, interakcija sa drugim postovima
+- poruke: mogucnost chatanja ili pravljenja grupa za chat
+- notifikacije: tipa interakcija sa postom, lajk, komentar...
+-  algoritam: da userima budu dostupne odredjene stvari na social media appu, tipa neke reklame ili da aplikacija nudi userima neki content
+- konfigurabilne opcije privatnosti: da postoji mogucnost da ljudi sakriju svoje postove i da brisu postove itd...
+- grupe i community: kreiranje grupa za poslove itd
+- da je aplikacija dostupna vizuelno i auditivno za ljude sa poteskocama u vidu ili sluhu - mozemo o ovome popricati na pozivu
+- alati za moderaciju: blokiranje, penali, filteri
