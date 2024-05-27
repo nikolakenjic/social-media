@@ -8,6 +8,8 @@ const app = express();
 // Routes
 import authRouter from './routes/authRoutes.js';
 import { StatusCodes } from 'http-status-codes';
+import AppError from './utils/appError.js';
+import errorController from './middleware/errorController.js';
 
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
@@ -21,22 +23,17 @@ app.use('/api/v1/auth', authRouter);
 
 // Errors
 app.all('*', (req, res, next) => {
-  const err = new Error(`Can't find ${req.originalUrl} on this server`);
-  err.status = 'fail';
-  err.statusCode = 404;
-
-  next(err);
+  next(
+    new AppError(
+      `Can't find ${req.originalUrl} on this server`,
+      StatusCodes.NOT_FOUND
+    )
+  );
 });
 
-app.use((err, req, res, next) => {
-  err.statusCode = err.statusCode || 500;
-  err.status = err.status || 'error';
-
-  res.status(err.statusCode).json({ status: err.status, message: err.message });
-});
+app.use(errorController);
 
 // Running server
-
 const port = process.env.PORT || 5050;
 
 try {
