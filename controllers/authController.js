@@ -15,6 +15,7 @@ const signup = async (req, res, next) => {
       .status(StatusCodes.CREATED)
       .json({ message: 'Successfully created profile', user });
   } catch (err) {
+    console.error(err);
     next(err);
   }
 };
@@ -33,13 +34,14 @@ const login = async (req, res, next) => {
       user && (await comparePassword(password, user.password));
 
     if (!isValidUser) {
-      throw new AppError('Password dont match', 401);
+      throw new AppError('Password dont match', 400);
     }
 
     res
       .status(StatusCodes.OK)
       .json({ message: 'Successfully created profile', user });
   } catch (err) {
+    console.error(err);
     next(err);
   }
 };

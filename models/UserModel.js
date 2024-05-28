@@ -25,27 +25,43 @@ const UserSchema = new mongoose.Schema(
     //   required: [true, 'Please confirm password'],
     //   min: 6,
     // },
-    // profilePicture: {
-    //   type: String,
-    //   default: '',
-    // },
-    // coverPicture: {
-    //   type: String,
-    //   default: '',
-    // },
-    // followers: {
-    //   type: Array,
-    //   default: [],
-    // },
-    // followings: {
-    //   type: Array,
-    //   default: [],
-    // },
+    profilePicture: {
+      type: String,
+      default: '',
+    },
+    coverPicture: {
+      type: String,
+      default: '',
+    },
+    followers: {
+      type: Array,
+      default: [],
+    },
+    followings: {
+      type: Array,
+      default: [],
+    },
     // role: {
     //   type: String,
     //   enum: ['user', 'admin'],
     //   default: 'user',
     // },
+    isAdmin: {
+      type: Boolean,
+      default: false,
+    },
+    desc: {
+      type: String,
+      max: 50,
+    },
+    city: {
+      type: String,
+      max: 50,
+    },
+    from: {
+      type: String,
+      max: 50,
+    },
   },
   { timestamps: true }
 );
