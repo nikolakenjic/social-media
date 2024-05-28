@@ -54,14 +54,14 @@ const followUser = async (req, res, next) => {
   if (req.body.userId !== req.params.id) {
     try {
       const user = await User.findById(req.params.id);
-      const currentUser = await User.findById(req.body.id);
+      const currentUser = await User.findById(req.body.userId);
 
       if (!user.followers.includes(req.body.userId)) {
         await user.updateOne({ $push: { followers: req.body.userId } });
         await currentUser.updateOne({ $push: { followings: req.params.id } });
 
         res.status(StatusCodes.OK).json({
-          message: 'You follow this user',
+          message: 'User has been followed',
         });
       } else {
         res.status(StatusCodes.FORBIDDEN).json({
@@ -78,6 +78,35 @@ const followUser = async (req, res, next) => {
       .json({ message: 'You can not follow yourself' });
   }
 };
-// Unfollow a user
 
-export { getUser, updateUser, deleteUser, followUser };
+// Unfollow a user
+const unFollowUser = async (req, res, next) => {
+  if (req.body.userId !== req.params.id) {
+    try {
+      const user = await User.findById(req.params.id);
+      const currentUser = await User.findById(req.body.userId);
+
+      if (user.followers.includes(req.body.userId)) {
+        await user.updateOne({ $pull: { followers: req.body.userId } });
+        await currentUser.updateOne({ $pull: { followings: req.params.id } });
+
+        res.status(StatusCodes.OK).json({
+          message: 'User has been unfollowed',
+        });
+      } else {
+        res.status(StatusCodes.FORBIDDEN).json({
+          message: 'You dont follow this user',
+        });
+      }
+    } catch (err) {
+      console.error(err);
+      next(err);
+    }
+  } else {
+    res
+      .status(StatusCodes.FORBIDDEN)
+      .json({ message: 'You can not unfollow yourself' });
+  }
+};
+
+export { getUser, updateUser, deleteUser, followUser, unFollowUser };
