@@ -1,10 +1,16 @@
-import Navbar from '../components/Navbar';
+import { Feed, Sidebar, Navbar, Rightbar } from '../components';
+import Wrapper from '../assets/wrappers/HomeWrapper';
 
 const Home = () => {
   return (
-    <div>
+    <>
       <Navbar />
-    </div>
+      <Wrapper>
+        <Sidebar />
+        <Feed />
+        <Rightbar />
+      </Wrapper>
+    </>
   );
 };
 
