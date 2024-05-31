@@ -1,7 +1,12 @@
-import React from 'react';
+import Wrapper from '../assets/wrappers/FeedWrapper';
+import Share from './Share';
 
 const Feed = () => {
-  return <div>Feed</div>;
+  return (
+    <Wrapper>
+      <Share />
+    </Wrapper>
+  );
 };
 
 export default Feed;

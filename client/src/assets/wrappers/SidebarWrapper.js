@@ -1,15 +1,13 @@
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  .sidebar {
-    flex: 3;
-    height: calc(100vh - 50px);
-    overflow-y: scroll;
-    position: sticky;
-    top: 50px;
-  }
+  flex: 3;
+  height: calc(100vh - 50px);
+  overflow-y: scroll;
+  position: sticky;
+  top: 50px;
 
-  ::-webkit-scrollbar {
+  /* ::-webkit-scrollbar {
     width: 5px;
   }
   ::-webkit-scrollbar-track {
@@ -17,7 +15,7 @@ const Wrapper = styled.div`
   }
   ::-webkit-scrollbar-thumb {
     background-color: rgb(179, 179, 179);
-  }
+  } */
 
   .sidebarWrapper {
     padding: 20px;
@@ -55,6 +53,20 @@ const Wrapper = styled.div`
     padding: 0;
     margin: 0;
     list-style: none;
+  }
+
+  .sidebarFriend {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+
+  .sidebarFriendImg {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
   }
 `;
 

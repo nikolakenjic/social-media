@@ -8,10 +8,11 @@ import { MdWorkOutline } from 'react-icons/md';
 import { MdOutlineEvent } from 'react-icons/md';
 import { IoSchool } from 'react-icons/io5';
 import Wrapper from '../assets/wrappers/SidebarWrapper';
+import profilePics from '../assets/images/3.jpg';
 
 const Sidebar = () => {
   return (
-    <Wrapper className="sidebar">
+    <Wrapper>
       <div className="sidebarWrapper">
         <ul className="sidebarList">
           <li className="sidebarListItem">
@@ -54,6 +55,122 @@ const Sidebar = () => {
         <button className="sidebarButton">Show More</button>
         <hr className="sidebarHr" />
         <ul className="sidebarFriendList">
+          <li className="sidebarFriend">
+            <img className="sidebarFriendImg" src={profilePics} alt="" />
+            <span className="sidebarFriendName">Anna Harthaway</span>
+          </li>
+          <li className="sidebarFriend">
+            <img className="sidebarFriendImg" src={profilePics} alt="" />
+            <span className="sidebarFriendName">Anna Harthaway</span>
+          </li>
+          <li className="sidebarFriend">
+            <img className="sidebarFriendImg" src={profilePics} alt="" />
+            <span className="sidebarFriendName">Anna Harthaway</span>
+          </li>
+          <li className="sidebarFriend">
+            <img className="sidebarFriendImg" src={profilePics} alt="" />
+            <span className="sidebarFriendName">Anna Harthaway</span>
+          </li>
+          <li className="sidebarFriend">
+            <img className="sidebarFriendImg" src={profilePics} alt="" />
+            <span className="sidebarFriendName">Anna Harthaway</span>
+          </li>
+          <li className="sidebarFriend">
+            <img className="sidebarFriendImg" src={profilePics} alt="" />
+            <span className="sidebarFriendName">Anna Harthaway</span>
+          </li>
+          <li className="sidebarFriend">
+            <img className="sidebarFriendImg" src={profilePics} alt="" />
+            <span className="sidebarFriendName">Anna Harthaway</span>
+          </li>
+          <li className="sidebarFriend">
+            <img className="sidebarFriendImg" src={profilePics} alt="" />
+            <span className="sidebarFriendName">Anna Harthaway</span>
+          </li>
+          <li className="sidebarFriend">
+            <img className="sidebarFriendImg" src={profilePics} alt="" />
+            <span className="sidebarFriendName">Anna Harthaway</span>
+          </li>
+          <li className="sidebarFriend">
+            <img className="sidebarFriendImg" src={profilePics} alt="" />
+            <span className="sidebarFriendName">Anna Harthaway</span>
+          </li>
+          <li className="sidebarFriend">
+            <img className="sidebarFriendImg" src={profilePics} alt="" />
+            <span className="sidebarFriendName">Anna Harthaway</span>
+          </li>
+          <li className="sidebarFriend">
+            <img className="sidebarFriendImg" src={profilePics} alt="" />
+            <span className="sidebarFriendName">Anna Harthaway</span>
+          </li>
+          <li className="sidebarFriend">
+            <img className="sidebarFriendImg" src={profilePics} alt="" />
+            <span className="sidebarFriendName">Anna Harthaway</span>
+          </li>
+          <li className="sidebarFriend">
+            <img className="sidebarFriendImg" src={profilePics} alt="" />
+            <span className="sidebarFriendName">Anna Harthaway</span>
+          </li>
+          <li className="sidebarFriend">
+            <img className="sidebarFriendImg" src={profilePics} alt="" />
+            <span className="sidebarFriendName">Anna Harthaway</span>
+          </li>
+          <li className="sidebarFriend">
+            <img className="sidebarFriendImg" src={profilePics} alt="" />
+            <span className="sidebarFriendName">Anna Harthaway</span>
+          </li>
+          <li className="sidebarFriend">
+            <img className="sidebarFriendImg" src={profilePics} alt="" />
+            <span className="sidebarFriendName">Anna Harthaway</span>
+          </li>
+          <li className="sidebarFriend">
+            <img className="sidebarFriendImg" src={profilePics} alt="" />
+            <span className="sidebarFriendName">Anna Harthaway</span>
+          </li>
+          <li className="sidebarFriend">
+            <img className="sidebarFriendImg" src={profilePics} alt="" />
+            <span className="sidebarFriendName">Anna Harthaway</span>
+          </li>
+          <li className="sidebarFriend">
+            <img className="sidebarFriendImg" src={profilePics} alt="" />
+            <span className="sidebarFriendName">Anna Harthaway</span>
+          </li>
+          <li className="sidebarFriend">
+            <img className="sidebarFriendImg" src={profilePics} alt="" />
+            <span className="sidebarFriendName">Anna Harthaway</span>
+          </li>
+          <li className="sidebarFriend">
+            <img className="sidebarFriendImg" src={profilePics} alt="" />
+            <span className="sidebarFriendName">Anna Harthaway</span>
+          </li>
+          <li className="sidebarFriend">
+            <img className="sidebarFriendImg" src={profilePics} alt="" />
+            <span className="sidebarFriendName">Anna Harthaway</span>
+          </li>
+          <li className="sidebarFriend">
+            <img className="sidebarFriendImg" src={profilePics} alt="" />
+            <span className="sidebarFriendName">Anna Harthaway</span>
+          </li>
+          <li className="sidebarFriend">
+            <img className="sidebarFriendImg" src={profilePics} alt="" />
+            <span className="sidebarFriendName">Anna Harthaway</span>
+          </li>
+          <li className="sidebarFriend">
+            <img className="sidebarFriendImg" src={profilePics} alt="" />
+            <span className="sidebarFriendName">Anna Harthaway</span>
+          </li>
+          <li className="sidebarFriend">
+            <img className="sidebarFriendImg" src={profilePics} alt="" />
+            <span className="sidebarFriendName">Anna Harthaway</span>
+          </li>
+          <li className="sidebarFriend">
+            <img className="sidebarFriendImg" src={profilePics} alt="" />
+            <span className="sidebarFriendName">Anna Harthaway</span>
+          </li>
+          <li className="sidebarFriend">
+            <img className="sidebarFriendImg" src={profilePics} alt="" />
+            <span className="sidebarFriendName">Anna Harthaway</span>
+          </li>
           {/* {Users.map((u) => (
             <CloseFriend key={u.id} user={u} />
           ))} */}
