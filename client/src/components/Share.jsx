@@ -3,14 +3,17 @@ import { MdLabel } from 'react-icons/md';
 import { IoLocationSharp } from 'react-icons/io5';
 import { MdEmojiEmotions } from 'react-icons/md';
 import Wrapper from '../assets/wrappers/ShareWrapper';
-import sharePics from '../assets/images/1.jpg';
 
 const Share = () => {
   return (
     <Wrapper>
       <div className="shareWrapper">
         <div className="shareTop">
-          <img className="shareProfileImg" src={sharePics} alt="" />
+          <img
+            className="shareProfileImg"
+            src="../../public/images/1.jpg"
+            alt=""
+          />
           <input
             placeholder="What's in your mind Safak?"
             className="shareInput"

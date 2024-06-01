@@ -3,7 +3,6 @@ import { CiSearch } from 'react-icons/ci';
 import { MdOutlineChat } from 'react-icons/md';
 import { IoIosNotifications } from 'react-icons/io';
 import Wrapper from '../assets/wrappers/NavbarWrapper';
-import img from '../assets/images/1.jpg';
 
 const Navbar = () => {
   return (
@@ -39,7 +38,7 @@ const Navbar = () => {
             <span className="topbarIconBadge">1</span>
           </div>
         </div>
-        <img src={img} alt="" className="topbarImg" />
+        <img src="../../public/images/1.jpg" alt="" className="topbarImg" />
       </div>
     </Wrapper>
   );
