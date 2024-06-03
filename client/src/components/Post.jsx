@@ -1,9 +1,19 @@
 import { MdOutlineMoreVert } from 'react-icons/md';
+import { FcLike } from 'react-icons/fc';
+import { BiLike } from 'react-icons/bi';
 import Wrapper from '../assets/wrappers/PostWrapper';
 import { Users } from './../../dummyData';
+import { useState } from 'react';
 
 const Post = ({ comment, date, desc, like, photo, userId }) => {
   const user = Users.filter((user) => user.id === userId);
+  const [likes, setLikes] = useState(like);
+  const [isLiked, setIsLiked] = useState(false);
+
+  const handleLike = () => {
+    setLikes(isLiked ? likes - 1 : likes + 1);
+    setIsLiked((prevValue) => !prevValue);
+  };
 
   return (
     <Wrapper>
@@ -28,9 +38,9 @@ const Post = ({ comment, date, desc, like, photo, userId }) => {
         </div>
         <div className="postBottom">
           <div className="postBottomLeft">
-            <img className="likeIcon" src="assets/like.png" alt="" />
-            <img className="likeIcon" src="assets/heart.png" alt="" />
-            <span className="postLikeCounter">{like} people like it</span>
+            <BiLike className="likeIcon" onClick={handleLike} />
+            <FcLike className="likeIcon" onClick={handleLike} />
+            <span className="postLikeCounter">{likes} people like it</span>
           </div>
           <div className="postBottomRight">
             <span className="postCommentText">{comment} comments</span>

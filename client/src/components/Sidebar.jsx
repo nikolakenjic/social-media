@@ -56,7 +56,6 @@ const Sidebar = () => {
         <hr className="sidebarHr" />
         <ul className="sidebarFriendList">
           {Users.map((user) => {
-            console.log(user);
             return (
               <li key={user.id} className="sidebarFriend">
                 <img
