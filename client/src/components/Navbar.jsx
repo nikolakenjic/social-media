@@ -3,12 +3,15 @@ import { CiSearch } from 'react-icons/ci';
 import { MdOutlineChat } from 'react-icons/md';
 import { IoIosNotifications } from 'react-icons/io';
 import Wrapper from '../assets/wrappers/NavbarWrapper';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
     <Wrapper>
       <div className="topbarLeft">
-        <span className="logo">Lamasocial</span>
+        <Link to="/" style={{ textDecoration: 'none' }}>
+          <span className="logo">F1 Social</span>
+        </Link>
       </div>
       <div className="topbarCenter">
         <div className="searchbar">

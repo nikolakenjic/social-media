@@ -10,7 +10,9 @@ import {
 
 const router = Router();
 
-router.route('/').get(getTimeline).post(createPost);
+router.route('/').post(createPost);
+
+router.route('/timeline/:userId').get(getTimeline);
 
 router.route('/:id').get(getSinglePost).patch(updatePost).delete(deletePost);
 

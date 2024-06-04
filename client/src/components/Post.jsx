@@ -3,12 +3,23 @@ import { FcLike } from 'react-icons/fc';
 import { BiLike } from 'react-icons/bi';
 import Wrapper from '../assets/wrappers/PostWrapper';
 import { Users } from './../../dummyData';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import fetchUrl from '../utils/axios';
 
-const Post = ({ comment, date, desc, like, photo, userId }) => {
-  const user = Users.filter((user) => user.id === userId);
-  const [likes, setLikes] = useState(like);
+const Post = ({ post }) => {
+  console.log(post);
+  // const user = Users.filter((user) => user.id === userId);
+  const [likes, setLikes] = useState(post.likes.length);
   const [isLiked, setIsLiked] = useState(false);
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const res = await fetchUrl.get(`/user/${post.userId}`);
+      setUser(res.data.user);
+    };
+    fetchUser();
+  }, [post.userId]);
 
   const handleLike = () => {
     setLikes(isLiked ? likes - 1 : likes + 1);
@@ -22,19 +33,19 @@ const Post = ({ comment, date, desc, like, photo, userId }) => {
           <div className="postTopLeft">
             <img
               className="postProfileImg"
-              src={user[0]?.profilePicture}
+              src={user.profilePicture || ''}
               alt=""
             />
-            <span className="postUsername">{user[0]?.username}</span>
-            <span className="postDate">{date}</span>
+            <span className="postUsername">{user.username}</span>
+            {/* <span className="postDate">{user.}</span> */}
           </div>
           <div className="postTopRight">
             <MdOutlineMoreVert />
           </div>
         </div>
         <div className="postCenter">
-          <span className="postText">{desc && desc}</span>
-          <img className="postImg" src={photo} alt="" />
+          {/* <span className="postText">{desc && desc}</span>
+          <img className="postImg" src={photo} alt="" /> */}
         </div>
         <div className="postBottom">
           <div className="postBottomLeft">
@@ -43,7 +54,7 @@ const Post = ({ comment, date, desc, like, photo, userId }) => {
             <span className="postLikeCounter">{likes} people like it</span>
           </div>
           <div className="postBottomRight">
-            <span className="postCommentText">{comment} comments</span>
+            <span className="postCommentText"> comments</span>
           </div>
         </div>
       </div>

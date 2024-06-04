@@ -1,47 +1,47 @@
 export const Users = [
   {
     id: 1,
-    profilePicture: './public/images/1.jpg',
+    profilePicture: './images/1.jpg',
     username: 'Safak Kocaoglu',
   },
   {
     id: 2,
-    profilePicture: './public/images/2.jpg',
+    profilePicture: './images/2.jpg',
     username: 'Janell Shrum',
   },
   {
     id: 3,
-    profilePicture: './public/images/3.jpg',
+    profilePicture: './images/3.jpg',
     username: 'Alex Durden',
   },
   {
     id: 4,
-    profilePicture: './public/images/4.jpg',
+    profilePicture: './images/4.jpg',
     username: 'Dora Hawks',
   },
   {
     id: 5,
-    profilePicture: './public/images/5.jpg',
+    profilePicture: './images/5.jpg',
     username: 'Thomas Holden',
   },
   {
     id: 6,
-    profilePicture: './public/images/6.jpg',
+    profilePicture: './images/6.jpg',
     username: 'Shirley Beauchamp',
   },
   {
     id: 7,
-    profilePicture: './public/images/7.jpg',
+    profilePicture: './images/7.jpg',
     username: 'Travis Bennett',
   },
   {
     id: 8,
-    profilePicture: './public/images/8.jpg',
+    profilePicture: './images/8.jpg',
     username: 'Kristen Thomas',
   },
   {
     id: 9,
-    profilePicture: './public/images/chef.png',
+    profilePicture: './images/chef.png',
     username: 'Gary Duty',
   },
 ];
@@ -50,7 +50,7 @@ export const Posts = [
   {
     id: 1,
     desc: 'Love For All, Hatred For None.',
-    photo: './public/images/1.jpeg',
+    photo: './images/1.jpeg',
     date: '5 mins ago',
     userId: 1,
     like: 32,
@@ -58,7 +58,7 @@ export const Posts = [
   },
   {
     id: 2,
-    photo: './public/images/findus.png',
+    photo: './images/findus.png',
     date: '15 mins ago',
     userId: 2,
     like: 2,
@@ -67,7 +67,7 @@ export const Posts = [
   {
     id: 3,
     desc: 'Every moment is a fresh beginning.',
-    photo: './public/images/gallery01.png',
+    photo: './images/gallery01.png',
     date: '1 hour ago',
     userId: 3,
     like: 61,
@@ -75,7 +75,7 @@ export const Posts = [
   },
   {
     id: 4,
-    photo: './public/images/gallery02.png',
+    photo: './images/gallery02.png',
     date: '4 hours ago',
     userId: 4,
     like: 7,
@@ -83,7 +83,7 @@ export const Posts = [
   },
   {
     id: 5,
-    photo: './public/images/gallery03.png',
+    photo: './images/gallery03.png',
     date: '5 hours ago',
     userId: 5,
     like: 23,
@@ -91,7 +91,7 @@ export const Posts = [
   },
   {
     id: 6,
-    photo: './public/images/gallery04.png',
+    photo: './images/gallery04.png',
     date: '1 day ago',
     userId: 6,
     like: 44,
@@ -100,7 +100,7 @@ export const Posts = [
   {
     id: 7,
     desc: 'Never regret anything that made you smile.',
-    photo: './public/images/menu.png',
+    photo: './images/menu.png',
     date: '2 days ago',
     userId: 7,
     like: 52,
@@ -108,7 +108,7 @@ export const Posts = [
   },
   {
     id: 8,
-    photo: './public/images/welcome.png',
+    photo: './images/welcome.png',
     date: '3 days ago',
     userId: 8,
     like: 15,
