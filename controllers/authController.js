@@ -3,6 +3,8 @@ import User from './../models/UserModel.js';
 import { comparePassword, hashedPassword } from '../utils/passwordEncrypted.js';
 import AppError from '../utils/appError.js';
 
+import jwt from 'jsonwebtoken';
+
 const signup = async (req, res, next) => {
   try {
     const hashPwd = await hashedPassword(req.body.password);
@@ -10,10 +12,13 @@ const signup = async (req, res, next) => {
     req.body.password = hashPwd;
 
     const user = await User.create(req.body);
+    const tokenUser = { name: user.username, userId: user._id };
+
+    const token = jwt.sign(tokenUser, 'jwtSecret', { expiresIn: '1d' });
 
     res
       .status(StatusCodes.CREATED)
-      .json({ message: 'Successfully created profile', user });
+      .json({ message: 'Successfully created profile', user, token });
   } catch (err) {
     console.error(err);
     next(err);
