@@ -2,8 +2,7 @@ import { StatusCodes } from 'http-status-codes';
 import User from './../models/UserModel.js';
 import { comparePassword, hashedPassword } from '../utils/passwordEncrypted.js';
 import AppError from '../utils/appError.js';
-
-import jwt from 'jsonwebtoken';
+import { createJWT } from '../utils/tokenUtils.js';
 
 const signup = async (req, res, next) => {
   try {
@@ -14,7 +13,7 @@ const signup = async (req, res, next) => {
     const user = await User.create(req.body);
     const tokenUser = { name: user.username, userId: user._id };
 
-    const token = jwt.sign(tokenUser, 'jwtSecret', { expiresIn: '1d' });
+    const token = createJWT(tokenUser);
 
     res
       .status(StatusCodes.CREATED)
