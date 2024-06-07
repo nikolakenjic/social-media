@@ -13,7 +13,7 @@ const signup = async (req, res, next) => {
     const user = await User.create(req.body);
     const tokenUser = { name: user.username, userId: user._id };
 
-    const token = createJWT(tokenUser);
+    const token = createJWT({ payload: tokenUser });
 
     res
       .status(StatusCodes.CREATED)
