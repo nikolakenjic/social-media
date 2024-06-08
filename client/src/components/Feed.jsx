@@ -7,11 +7,12 @@ import fetchUrl from '../utils/axios';
 
 const Feed = () => {
   const [posts, setPosts] = useState([]);
+  console.log(posts);
 
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetchUrl.get(
-        '/posts/timeline/66559ed126cc6994cd061f43'
+        '/posts/timeline/6664ab71f4a40200b92dab5b'
       );
       setPosts(res.data.allPosts);
     };

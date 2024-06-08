@@ -5,6 +5,7 @@ import Wrapper from '../assets/wrappers/PostWrapper';
 import { Users } from './../../dummyData';
 import { useEffect, useState } from 'react';
 import fetchUrl from '../utils/axios';
+import { format } from 'timeago.js';
 
 const Post = ({ post }) => {
   console.log(post);
@@ -37,7 +38,7 @@ const Post = ({ post }) => {
               alt=""
             />
             <span className="postUsername">{user.username}</span>
-            {/* <span className="postDate">{user.}</span> */}
+            <span className="postDate">{format(user.createdAt)}</span>
           </div>
           <div className="postTopRight">
             <MdOutlineMoreVert />
