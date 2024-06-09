@@ -41,9 +41,13 @@ const login = async (req, res, next) => {
       throw new AppError('Password dont match', 400);
     }
 
+    const tokenUser = { name: user.username, userId: user._id };
+
+    const token = createJWT({ payload: tokenUser });
+
     res
       .status(StatusCodes.OK)
-      .json({ message: 'Successfully created profile', user });
+      .json({ message: 'Successfully created profile', user, token });
   } catch (err) {
     console.error(err);
     next(err);
