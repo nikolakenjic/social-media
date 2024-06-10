@@ -11,13 +11,14 @@ const Feed = ({ username }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetchUrl.get(
-        '/posts/timeline/6665671e0d46771264a6732c'
-      );
+      const res = username
+        ? await fetchUrl.get('/posts/profile/' + username)
+        : await fetchUrl.get('/posts/timeline/6665671e0d46771264a6732c');
+
       setPosts(res.data.allPosts);
     };
     fetchData();
-  }, []);
+  }, [username]);
 
   return (
     <Wrapper>

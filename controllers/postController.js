@@ -27,6 +27,19 @@ const getTimeline = async (req, res, next) => {
   }
 };
 
+const getAllUserPosts = async (req, res, next) => {
+  try {
+    const user = await User.findOne({ username: req.params.username });
+
+    const allPosts = await Post.find({ userId: user._id });
+    res.status(StatusCodes.OK).json({ message: 'Success', allPosts });
+    // res.send('user');
+  } catch (err) {
+    console.error(err);
+    next(err);
+  }
+};
+
 const getSinglePost = async (req, res, next) => {
   try {
     const post = await Post.findById(req.params.id);
@@ -134,4 +147,5 @@ export {
   updatePost,
   deletePost,
   likeDislikePost,
+  getAllUserPosts,
 };
