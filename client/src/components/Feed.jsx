@@ -5,14 +5,14 @@ import { Posts } from './../../dummyData';
 import { useEffect, useState } from 'react';
 import fetchUrl from '../utils/axios';
 
-const Feed = () => {
+const Feed = ({ username }) => {
   const [posts, setPosts] = useState([]);
-  console.log(posts);
+  console.log('username', username);
 
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetchUrl.get(
-        '/posts/timeline/6664ab71f4a40200b92dab5b'
+        '/posts/timeline/6665671e0d46771264a6732c'
       );
       setPosts(res.data.allPosts);
     };

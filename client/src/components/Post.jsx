@@ -6,9 +6,10 @@ import { Users } from './../../dummyData';
 import { useEffect, useState } from 'react';
 import fetchUrl from '../utils/axios';
 import { format } from 'timeago.js';
+import { Link } from 'react-router-dom';
 
 const Post = ({ post }) => {
-  console.log(post);
+  // console.log(post);
   // const user = Users.filter((user) => user.id === userId);
   const [likes, setLikes] = useState(post.likes.length);
   const [isLiked, setIsLiked] = useState(false);
@@ -32,11 +33,13 @@ const Post = ({ post }) => {
       <div className="postWrapper">
         <div className="postTop">
           <div className="postTopLeft">
-            <img
-              className="postProfileImg"
-              src={user.profilePicture || ''}
-              alt=""
-            />
+            <Link to={``}>
+              <img
+                className="postProfileImg"
+                src={user.profilePicture || ''}
+                alt=""
+              />
+            </Link>
             <span className="postUsername">{user.username}</span>
             <span className="postDate">{format(user.createdAt)}</span>
           </div>
