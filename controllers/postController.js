@@ -15,12 +15,8 @@ const getTimeline = async (req, res, next) => {
     );
 
     const allPosts = userPost.concat(...friendsPosts);
-    // if (!userPost) {
-    //   throw new AppError('Post not found', StatusCodes.NOT_FOUND);
-    // }
 
     res.status(StatusCodes.OK).json({ message: 'Success', allPosts });
-    // res.send('user');
   } catch (err) {
     console.error(err);
     next(err);
@@ -33,7 +29,6 @@ const getAllUserPosts = async (req, res, next) => {
 
     const allPosts = await Post.find({ userId: user._id });
     res.status(StatusCodes.OK).json({ message: 'Success', allPosts });
-    // res.send('user');
   } catch (err) {
     console.error(err);
     next(err);
