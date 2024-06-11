@@ -3,11 +3,25 @@ dotenv.config();
 import express from 'express';
 import morgan from 'morgan';
 import { StatusCodes } from 'http-status-codes';
+import helmet from 'helmet';
+import cors from 'cors';
+import rateLimit from 'express-rate-limit';
+
 import AppError from './utils/appError.js';
 import errorController from './middleware/errorController.js';
 import { connectDB } from './db/connectDB.js';
 
 const app = express();
+
+// Security Middlewares
+app.use(helmet());
+app.use(cors());
+
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+});
+
+app.use('/api/', limiter);
 
 // Routes
 import authRouter from './routes/authRoutes.js';
