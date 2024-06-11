@@ -14,7 +14,7 @@ const router = Router();
 
 router.route('/').post(createPost);
 
-router.route('/timeline/:userId').get(protect, getTimeline);
+router.route('/timeline').get(protect, getTimeline);
 
 router.route('/profile/:username').get(getAllUserPosts);
 

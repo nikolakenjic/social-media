@@ -1,9 +1,10 @@
+import User from '../models/UserModel.js';
 import AppError from '../utils/appError.js';
+import { verifyJWT } from '../utils/tokenUtils.js';
 
 export const protect = async (req, res, next) => {
   try {
     let token;
-    // console.log(req.headers);
 
     if (
       req.headers.authorization &&
@@ -19,7 +20,15 @@ export const protect = async (req, res, next) => {
       );
     }
 
-    console.log(token);
+    const { userId } = verifyJWT({ token });
+
+    //   Check if user still exists
+    const currentUser = await User.findById(userId);
+    if (!currentUser) {
+      throw new AppError('Not found user', 404);
+    }
+
+    req.user = currentUser;
 
     next();
   } catch (err) {
