@@ -45,6 +45,13 @@ const login = async (req, res, next) => {
 
     const token = createJWT({ payload: tokenUser });
 
+    const oneDay = 24 * 60 * 60 * 1000;
+
+    res.cookie('token', token, {
+      httpOnly: true,
+      expires: new Date(Date.now() + oneDay),
+    });
+
     res
       .status(StatusCodes.OK)
       .json({ message: 'Successfully created profile', user, token });
@@ -55,7 +62,12 @@ const login = async (req, res, next) => {
 };
 
 const logout = async (req, res, next) => {
-  res.send('logout');
+  res.cookie('token', 'logout', {
+    httpOnly: true,
+    expires: new Date(Date.now()),
+  });
+
+  res.status(StatusCodes.OK).json({ msg: 'user logged out!' });
 };
 
 export { signup, login, logout };

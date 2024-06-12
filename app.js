@@ -6,6 +6,7 @@ import { StatusCodes } from 'http-status-codes';
 import helmet from 'helmet';
 import cors from 'cors';
 import rateLimit from 'express-rate-limit';
+import cookieParser from 'cookie-parser';
 
 import AppError from './utils/appError.js';
 import errorController from './middleware/errorController.js';
@@ -19,6 +20,8 @@ app.use(cors());
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
+  max: 50,
+  message: 'Too many requests form this IP, please try again in 15mins',
 });
 
 app.use('/api/', limiter);
@@ -30,6 +33,7 @@ import postRouter from './routes/postRoutes.js';
 
 // Middleware
 app.use(express.json());
+app.use(cookieParser());
 
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
