@@ -8,13 +8,13 @@ import {
   likeDislikePost,
   getAllUserPosts,
 } from '../controllers/postController.js';
-import { protect } from '../middleware/protect.js';
+import { authenticateUser } from '../middleware/authenticateUser.js';
 
 const router = Router();
 
 router.route('/').post(createPost);
 
-router.route('/timeline').get(protect, getTimeline);
+router.route('/timeline').get(authenticateUser, getTimeline);
 
 router.route('/profile/:username').get(getAllUserPosts);
 
