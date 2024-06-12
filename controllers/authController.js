@@ -27,6 +27,7 @@ const signup = async (req, res, next) => {
 const login = async (req, res, next) => {
   try {
     const { email, password } = req.body;
+    console.log('Sanitized email:', email); // Check if $gt is removed
 
     const user = await User.findOne({ email });
 

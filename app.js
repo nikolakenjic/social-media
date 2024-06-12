@@ -26,11 +26,6 @@ const limiter = rateLimit({
 
 app.use('/api/', limiter);
 
-// Routes
-import authRouter from './routes/authRoutes.js';
-import userRouter from './routes/userRoutes.js';
-import postRouter from './routes/postRoutes.js';
-
 // Middleware
 app.use(express.json());
 app.use(cookieParser());
@@ -38,6 +33,11 @@ app.use(cookieParser());
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
+
+// Routes
+import authRouter from './routes/authRoutes.js';
+import userRouter from './routes/userRoutes.js';
+import postRouter from './routes/postRoutes.js';
 
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/user', userRouter);
