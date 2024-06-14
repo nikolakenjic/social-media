@@ -39,7 +39,7 @@ const login = async (req, res, next) => {
       user && (await comparePassword(password, user.password));
 
     if (!isValidUser) {
-      throw new AppError('Password dont match', 400);
+      throw new AppError('Password do not match', 400);
     }
 
     const tokenUser = { name: user.username, userId: user._id };

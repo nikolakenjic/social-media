@@ -12,7 +12,11 @@ const validatorWithErrors = (validationValues) => {
         const errorMsgs = errors.array().map((err) => err.msg);
         console.log(errorMsgs);
 
-        throw new AppError(errorMsgs);
+        const statusCode = errorMsgs.some((e) => e === 'Email already exist')
+          ? StatusCodes.CONFLICT
+          : StatusCodes.BAD_REQUEST;
+
+        throw new AppError(errorMsgs, statusCode);
       }
 
       next();
