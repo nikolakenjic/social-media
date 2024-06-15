@@ -20,9 +20,8 @@ import { connectDB } from './db/connectDB.js';
 const app = express();
 
 // GOOGLE API
-const clientID =
-  '196606775074-frv0qtm48jed1ku9daqgc063mj72s7ov.apps.googleusercontent.com';
-const clientSecret = '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';
+const clientID = process.env.GOOGLE_CLIENT_ID;
+const clientSecret = process.env.GOOGLE_CLIENT_SECRET;
 
 // Security Middlewares
 app.use(helmet());
