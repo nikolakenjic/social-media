@@ -19,10 +19,6 @@ import { connectDB } from './db/connectDB.js';
 
 const app = express();
 
-// GOOGLE API
-const clientID = process.env.GOOGLE_CLIENT_ID;
-const clientSecret = process.env.GOOGLE_CLIENT_SECRET;
-
 // Security Middlewares
 app.use(helmet());
 app.use(cors());
