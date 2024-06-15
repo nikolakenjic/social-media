@@ -8,11 +8,21 @@ import cors from 'cors';
 import rateLimit from 'express-rate-limit';
 import cookieParser from 'cookie-parser';
 
+// Google API import
+import session from 'express-session';
+import passport from 'passport';
+import { Strategy as OAuth2Strategy } from 'passport-google-oauth2';
+
 import AppError from './utils/appError.js';
 import errorController from './middleware/errorController.js';
 import { connectDB } from './db/connectDB.js';
 
 const app = express();
+
+// GOOGLE API
+const clientID =
+  '196606775074-frv0qtm48jed1ku9daqgc063mj72s7ov.apps.googleusercontent.com';
+const clientSecret = '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';
 
 // Security Middlewares
 app.use(helmet());

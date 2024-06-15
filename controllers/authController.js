@@ -24,6 +24,19 @@ const signup = async (req, res, next) => {
   }
 };
 
+const google = async (req, res, next) => {
+  try {
+    res.send('google');
+
+    // res
+    //   .status(StatusCodes.OK)
+    //   .json({ message: 'Successfully SignUp with Google' });
+  } catch (err) {
+    console.error(err);
+    next(err);
+  }
+};
+
 const login = async (req, res, next) => {
   try {
     const { email, password } = req.body;
@@ -71,4 +84,4 @@ const logout = async (req, res, next) => {
   res.status(StatusCodes.OK).json({ msg: 'user logged out!' });
 };
 
-export { signup, login, logout };
+export { signup, login, logout, google };
