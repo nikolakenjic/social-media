@@ -7,6 +7,7 @@ import helmet from 'helmet';
 import cors from 'cors';
 import rateLimit from 'express-rate-limit';
 import cookieParser from 'cookie-parser';
+import User from './models/UserModel.js';
 
 // Google API import
 import session from 'express-session';
@@ -22,6 +23,50 @@ const app = express();
 // Security Middlewares
 app.use(helmet());
 app.use(cors());
+
+// Google API
+app.use(
+  session({
+    secret: '123545dasdsadasdasd',
+    resave: false,
+    saveUninitialized: true,
+  })
+);
+
+// Setup/passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(
+  new OAuth2Strategy(
+    {
+      clientID: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      callbackURL: '/auth/google/callback',
+      scope: ['profile', 'email'],
+    },
+    async (accessToken, refreshToken, profile, done) => {
+      try {
+        let user = await User.findOne({ googleId: profile.id });
+
+        if (!user) {
+          user = new User({
+            googleId: profile.id,
+            displayName: profile.displayName,
+            email: profile.emails[0].value,
+            image: profile.photos[0].value,
+          });
+
+          await user.save();
+        }
+
+        return done(null, user);
+      } catch (error) {
+        return done(error, null);
+      }
+    }
+  )
+);
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,

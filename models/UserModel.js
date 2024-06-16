@@ -2,6 +2,8 @@ import mongoose from 'mongoose';
 
 const UserSchema = new mongoose.Schema(
   {
+    googleId: String,
+    displayName: String,
     username: {
       type: String,
       required: [true, 'Please provide username'],
