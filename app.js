@@ -68,6 +68,48 @@ passport.use(
   )
 );
 
+passport.serializeUser((user, done) => {
+  done(null, user);
+});
+
+passport.deserializeUser((user, done) => {
+  done(null, user);
+});
+
+// initial google ouath login
+app.get(
+  '/auth/google',
+  passport.authenticate('google', { scope: ['profile', 'email'] })
+);
+
+app.get(
+  '/auth/google/callback',
+  // passport.authenticate('google', {
+  //   successRedirect: 'http://localhost:5173',
+  //   failureRedirect: 'http://localhost:5173/register',
+  // })
+  async (req, res) => {
+    res.send('hello');
+  }
+);
+
+app.get('/login/sucess', async (req, res) => {
+  if (req.user) {
+    res.status(200).json({ message: 'user Login', user: req.user });
+  } else {
+    res.status(400).json({ message: 'Not Authorized' });
+  }
+});
+
+app.get('/logout', (req, res, next) => {
+  req.logout(function (err) {
+    if (err) {
+      return next(err);
+    }
+    res.redirect('http://localhost:3001');
+  });
+});
+
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 50,
