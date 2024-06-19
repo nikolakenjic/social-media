@@ -1,6 +1,6 @@
 import React from 'react';
 import Wrapper from '../assets/wrappers/AuthPageWrapper';
-import Logo from './../assets/img/logo.png';
+import Logo from './../assets/img/f1logo.png';
 
 const AuthPage = () => {
   return (
@@ -8,8 +8,8 @@ const AuthPage = () => {
       <div className="Auth a-left">
         <img src={Logo} alt="" />
         <div className="Webname">
-          <h1>ZKC Media</h1>
-          <h6>Explore the ideas throughout the world</h6>
+          <h1>F1 Social</h1>
+          <h6>Explore F1 with us</h6>
         </div>
       </div>
 
