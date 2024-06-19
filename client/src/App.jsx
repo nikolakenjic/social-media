@@ -1,30 +1,20 @@
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import { Home, Login, Profile, Register } from './pages';
-import LoginPage from './pages/LoginPage';
-
-const router = createBrowserRouter([
-  // {
-  //   path: '',
-  //   element: <RootLayout />,
-  //   errorElement: <ErrorPage />,
-  //   children: [
-  //     { index: true, element: <HomePage /> },
-  //     {
-  //       path: ':id',
-  //       element: <DetailPage />,
-  //       loader: detailLoader,
-  //     },
-  //   ],
-  // },
-
-  { path: '/', element: <Home /> },
-  { path: '/login', element: <LoginPage /> },
-  { path: '/register', element: <Register /> },
-  { path: '/profile/:username', element: <Profile /> },
-]);
+import React from 'react';
+import Wrapper from './assets/wrappers/AppWrapper';
+import HomePage from './pages/HomePage';
+import ProfilePage from './pages/ProfilePage';
+import AuthPage from './pages/AuthPage';
 
 const App = () => {
-  return <RouterProvider router={router} />;
+  return (
+    <Wrapper>
+      <div className="blur" style={{ top: '-18%', right: '0' }}></div>
+      <div className="blur" style={{ top: '36%', left: '-8rem' }}></div>
+
+      <HomePage />
+      {/* <ProfilePage /> */}
+      {/* <AuthPage /> */}
+    </Wrapper>
+  );
 };
 
 export default App;

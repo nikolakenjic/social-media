@@ -7,7 +7,7 @@ import Noti from './../assets/img/noti.png';
 import Comment from './../assets/img/comment.png';
 
 const RightSide = () => {
-  const [modalOpened, setModalOpened] = useState(false);
+  // const [modalOpened, setModalOpened] = useState(false);
   return (
     <Wrapper>
       <div className="navIcons">
@@ -19,10 +19,12 @@ const RightSide = () => {
 
       <TrendCard />
 
-      <button className="button r-button" onClick={() => setModalOpened(true)}>
+      <button
+        className="button r-button" /*onClick={() => setModalOpened(true)}*/
+      >
         Share
       </button>
-      <ShareModal modalOpened={modalOpened} setModalOpened={setModalOpened} />
+      {/* <ShareModal modalOpened={modalOpened} setModalOpened={setModalOpened} /> */}
     </Wrapper>
   );
 };

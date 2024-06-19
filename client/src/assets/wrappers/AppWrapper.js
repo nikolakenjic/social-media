@@ -4,7 +4,7 @@ const Wrapper = styled.div`
   overflow: hidden;
   color: var(--black);
   background: #f3f3f3;
-  padding: 1rem 1rem;
+  /* padding: 1rem 1rem; */
 
   .blur {
     position: absolute;
