@@ -7,7 +7,7 @@ import Noti from './../assets/img/noti.png';
 import Comment from './../assets/img/comment.png';
 
 const RightSide = () => {
-  // const [modalOpened, setModalOpened] = useState(false);
+  const [modalOpened, setModalOpened] = useState(false);
   return (
     <Wrapper>
       <div className="navIcons">
@@ -25,6 +25,7 @@ const RightSide = () => {
         Share
       </button>
       {/* <ShareModal modalOpened={modalOpened} setModalOpened={setModalOpened} /> */}
+      <ShareModal />
     </Wrapper>
   );
 };
