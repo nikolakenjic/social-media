@@ -9,23 +9,13 @@ import { format } from 'timeago.js';
 import { Link } from 'react-router-dom';
 
 const Post = ({ post }) => {
-  // console.log(post);
-  // const user = Users.filter((user) => user.id === userId);
-  const [likes, setLikes] = useState(post.likes.length);
+  const [like, setLike] = useState(post.like);
   const [isLiked, setIsLiked] = useState(false);
-  const [user, setUser] = useState({});
+  console.log(Users);
 
-  useEffect(() => {
-    const fetchUser = async () => {
-      const res = await fetchUrl.get(`/user/${post.userId}`);
-      setUser(res.data.user);
-    };
-    fetchUser();
-  }, [post.userId]);
-
-  const handleLike = () => {
-    setLikes(isLiked ? likes - 1 : likes + 1);
-    setIsLiked((prevValue) => !prevValue);
+  const likeHandler = () => {
+    setLike(isLiked ? like - 1 : like + 1);
+    setIsLiked(!isLiked);
   };
 
   return (
@@ -36,12 +26,12 @@ const Post = ({ post }) => {
             <Link to={``}>
               <img
                 className="postProfileImg"
-                src={user.profilePicture || ''}
+                src="./../../public/images/1.jpeg"
                 alt=""
               />
             </Link>
-            <span className="postUsername">{user.username}</span>
-            <span className="postDate">{format(user.createdAt)}</span>
+            {/* <span className="postUsername">{user.username}</span> */}
+            {/* <span className="postDate">{format(user.createdAt)}</span> */}
           </div>
           <div className="postTopRight">
             <MdOutlineMoreVert />
@@ -53,9 +43,9 @@ const Post = ({ post }) => {
         </div>
         <div className="postBottom">
           <div className="postBottomLeft">
-            <BiLike className="likeIcon" onClick={handleLike} />
-            <FcLike className="likeIcon" onClick={handleLike} />
-            <span className="postLikeCounter">{likes} people like it</span>
+            <BiLike className="likeIcon" />
+            <FcLike className="likeIcon" />
+            <span className="postLikeCounter"> people like it</span>
           </div>
           <div className="postBottomRight">
             <span className="postCommentText"> comments</span>
