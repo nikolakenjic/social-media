@@ -14,19 +14,19 @@ export default function Rightbar({ profile }) {
         <img className="rightbarAd" src="assets/ad.png" alt="" />
         <h4 className="rightbarTitle">Online Friends</h4>
         <ul className="rightbarFriendList">
-          {Users.map((u) => {
-            // console.log(u);
+          {Users.map((user) => {
+            // console.log(user);
             return (
-              <li key={u.id} className="rightbarFriend">
+              <li key={user.id} className="rightbarFriend">
                 <div className="rightbarProfileImgContainer">
                   <img
                     className="rightbarProfileImg"
-                    src={u.profilePicture}
+                    src={user.profilePicture}
                     alt=""
                   />
                   <span className="rightbarOnline"></span>
                 </div>
-                <span className="rightbarUsername">{u.username}</span>
+                <span className="rightbarUsername">{user.username}</span>
               </li>
             );
           })}
@@ -61,11 +61,11 @@ export default function Rightbar({ profile }) {
               alt=""
               className="rightbarFollowingImg"
             />
-            <span className="rightbarFollowingName">John Carter</span>
+            <span className="rightbarFollowingName">John Carters</span>
           </div>
           <div className="rightbarFollowing">
             <img
-              src="../../public/images/8.jpg"
+              src="../../public/images/findus.png"
               alt=""
               className="rightbarFollowingImg"
             />

@@ -24,23 +24,9 @@ const signup = async (req, res, next) => {
   }
 };
 
-const google = async (req, res, next) => {
-  try {
-    res.send('google');
-
-    // res
-    //   .status(StatusCodes.OK)
-    //   .json({ message: 'Successfully SignUp with Google' });
-  } catch (err) {
-    console.error(err);
-    next(err);
-  }
-};
-
 const login = async (req, res, next) => {
   try {
     const { email, password } = req.body;
-    console.log('Sanitized email:', email); // Check if $gt is removed
 
     const user = await User.findOne({ email });
 
@@ -68,7 +54,7 @@ const login = async (req, res, next) => {
 
     res
       .status(StatusCodes.OK)
-      .json({ message: 'Successfully created profile', user, token });
+      .json({ message: 'Successfully login', user, token });
   } catch (err) {
     console.error(err);
     next(err);
@@ -84,4 +70,4 @@ const logout = async (req, res, next) => {
   res.status(StatusCodes.OK).json({ msg: 'user logged out!' });
 };
 
-export { signup, login, logout, google };
+export { signup, login, logout };
