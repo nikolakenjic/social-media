@@ -12,12 +12,12 @@ const Profile = () => {
             <div className="profileCover">
               <img
                 className="profileCoverImg"
-                src="./../../public/images/1.jpeg"
+                src="./../../images/1.jpeg"
                 alt=""
               />
               <img
                 className="profileUserImg"
-                src="./../../public/images/1.jpg"
+                src="./../../images/1.jpg"
                 alt=""
               />
             </div>
