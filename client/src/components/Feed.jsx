@@ -6,8 +6,24 @@ import { useEffect, useState } from 'react';
 import fetchUrl from '../utils/axios';
 
 const Feed = ({ username }) => {
-  // const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState([]);
   // console.log('username', username);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = username
+        ? await fetchUrl.get('/posts/profile/' + username)
+        : await fetchUrl.get('/posts/timeline/6664ab71f4a40200b92dab5b');
+
+      // console.log(res);
+
+      setPosts(res.data.allPosts);
+    };
+
+    fetchData();
+  }, [username]);
+
+  // console.log(posts);
 
   // useEffect(() => {
   //   const fetchData = async () => {
@@ -23,8 +39,8 @@ const Feed = ({ username }) => {
   return (
     <Wrapper>
       <Share />
-      {Posts.map((p) => (
-        <Post key={p.id} post={p} />
+      {posts.map((p) => (
+        <Post key={p._id} post={p} />
       ))}
     </Wrapper>
   );

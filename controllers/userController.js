@@ -5,6 +5,7 @@ import { hashedPassword } from '../utils/passwordEncrypted.js';
 
 // Get user
 const getUser = async (req, res, next) => {
+  console.log(typeof req.params.id);
   try {
     const user = await User.findById(req.params.id);
 
@@ -109,4 +110,32 @@ const unFollowUser = async (req, res, next) => {
   }
 };
 
-export { getUser, updateUser, deleteUser, followUser, unFollowUser };
+const getUserByNameOrId = async (req, res, next) => {
+  const userId = req.query.userId;
+  const username = req.query.username;
+  console.log('userId', userId);
+
+  try {
+    const user = userId
+      ? await User.findById(userId)
+      : await User.findOne({ username: username });
+
+    if (!user) {
+      throw new AppError('Can not find the user', 404);
+    }
+
+    res.status(StatusCodes.OK).json({ message: 'Success', user });
+  } catch (err) {
+    console.error(err);
+    next(err);
+  }
+};
+
+export {
+  getUser,
+  updateUser,
+  deleteUser,
+  followUser,
+  unFollowUser,
+  getUserByNameOrId,
+};

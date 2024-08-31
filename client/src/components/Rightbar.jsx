@@ -1,7 +1,7 @@
 import { Users } from '../../dummyData';
 import Wrapper from '../assets/wrappers/Rightbar';
 
-export default function Rightbar({ profile }) {
+export default function Rightbar({ user }) {
   const HomeRightbar = () => {
     return (
       <>
@@ -110,7 +110,7 @@ export default function Rightbar({ profile }) {
   return (
     <Wrapper className="rightbar">
       <div className="rightbarWrapper">
-        {profile ? <ProfileRightbar /> : <HomeRightbar />}
+        {user ? <ProfileRightbar /> : <HomeRightbar />}
       </div>
     </Wrapper>
   );

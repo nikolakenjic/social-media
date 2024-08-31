@@ -19,13 +19,13 @@ const app = express();
 app.use(helmet());
 app.use(cors());
 
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000,
-  max: 50,
-  message: 'Too many requests form this IP, please try again in 15mins',
-});
+// const limiter = rateLimit({
+//   windowMs: 15 * 60 * 1000,
+//   max: 50,
+//   message: 'Too many requests form this IP, please try again in 15mins',
+// });
 
-app.use('/api/', limiter);
+// app.use('/api/', limiter);
 
 // Middleware
 app.use(express.json());

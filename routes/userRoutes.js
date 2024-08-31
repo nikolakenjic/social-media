@@ -5,9 +5,12 @@ import {
   deleteUser,
   followUser,
   unFollowUser,
+  getUserByNameOrId,
 } from '../controllers/userController.js';
 
 const router = Router();
+
+router.route('/').get(getUserByNameOrId);
 
 router.route('/:id').get(getUser).patch(updateUser).delete(deleteUser);
 

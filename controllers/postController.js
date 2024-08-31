@@ -5,8 +5,7 @@ import AppError from '../utils/appError.js';
 
 const getTimeline = async (req, res, next) => {
   try {
-    // console.log('Current user', req.user);
-    const currentUser = await User.findById(req.user._id);
+    const currentUser = await User.findById(req.params.id);
 
     const userPost = await Post.find({ userId: currentUser._id });
     const friendsPosts = await Promise.all(
