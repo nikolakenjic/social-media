@@ -2,6 +2,8 @@ import { Users } from '../../dummyData';
 import Wrapper from '../assets/wrappers/Rightbar';
 
 export default function Rightbar({ user }) {
+  console.log(user);
+
   const HomeRightbar = () => {
     return (
       <>
@@ -42,7 +44,7 @@ export default function Rightbar({ user }) {
         <div className="rightbarInfo">
           <div className="rightbarInfoItem">
             <span className="rightbarInfoKey">City:</span>
-            <span className="rightbarInfoValue">New York</span>
+            <span className="rightbarInfoValue">{user.city}</span>
           </div>
           <div className="rightbarInfoItem">
             <span className="rightbarInfoKey">From:</span>

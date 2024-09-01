@@ -113,7 +113,6 @@ const unFollowUser = async (req, res, next) => {
 const getUserByNameOrId = async (req, res, next) => {
   const userId = req.query.userId;
   const username = req.query.username;
-  console.log('userId', userId);
 
   try {
     const user = userId

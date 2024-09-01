@@ -2,21 +2,23 @@ import { useEffect, useState } from 'react';
 import { Feed, Navbar, Rightbar, Sidebar } from '../components';
 import Wrapper from '../assets/wrappers/ProfileWrapper';
 import fetchUrl from '../utils/axios';
+import { useParams } from 'react-router-dom';
 
 const Profile = () => {
   const [user, setUser] = useState({});
+  const { username } = useParams();
 
   useEffect(() => {
     const fetchUser = async () => {
-      const res = await fetchUrl.get(`/user?username=nikola`);
+      const res = await fetchUrl.get(`/user?username=${username}`);
 
       setUser(res.data.user);
     };
 
     fetchUser();
-  }, []);
+  }, [username]);
 
-  console.log(user);
+  // console.log(user);
   return (
     <>
       <Navbar />
@@ -42,7 +44,7 @@ const Profile = () => {
             </div>
           </div>
           <div className="profileRightBottom">
-            <Feed username="nikola" />
+            <Feed username={username} />
             <Rightbar user={user} />
           </div>
         </div>

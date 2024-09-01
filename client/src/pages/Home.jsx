@@ -7,7 +7,7 @@ const Home = () => {
       <Navbar />
       <Wrapper>
         <Sidebar />
-        <Feed username="nikola" />
+        <Feed />
         <Rightbar />
       </Wrapper>
     </>
