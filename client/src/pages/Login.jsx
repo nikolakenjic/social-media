@@ -11,7 +11,7 @@ const Login = () => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    console.log('click');
+    // console.log('click');
     loginCall(
       {
         email: email.current.value,

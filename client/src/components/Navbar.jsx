@@ -4,8 +4,13 @@ import { MdOutlineChat } from 'react-icons/md';
 import { IoIosNotifications } from 'react-icons/io';
 import Wrapper from '../assets/wrappers/NavbarWrapper';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../context/AuthContext';
 
 const Navbar = () => {
+  const { user } = useContext(AuthContext);
+  console.log(user);
+
   return (
     <Wrapper>
       <div className="topbarLeft">
@@ -41,7 +46,9 @@ const Navbar = () => {
             <span className="topbarIconBadge">1</span>
           </div>
         </div>
-        <img src="../../public/images/1.jpg" alt="" className="topbarImg" />
+        <Link to={`/profile/${user.username}`}>
+          <img src="../../public/images/1.jpg" alt="" className="topbarImg" />
+        </Link>
       </div>
     </Wrapper>
   );
