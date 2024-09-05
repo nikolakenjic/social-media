@@ -3,17 +3,23 @@ import { FcLike } from 'react-icons/fc';
 import { BiLike } from 'react-icons/bi';
 import Wrapper from '../assets/wrappers/PostWrapper';
 import { Users } from './../../dummyData';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import fetchUrl from '../utils/axios';
 import { format } from 'timeago.js';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
 
 const Post = ({ post }) => {
   const [like, setLike] = useState(post.likes.length);
   const [isLiked, setIsLiked] = useState(false);
   const [user, setUser] = useState({});
+  const { user: currentUser } = useContext(AuthContext);
   // const user = Users.filter((u) => u.id === post?.userId)[0];
   // console.log('postId', post._id);
+
+  useEffect(() => {
+    setIsLiked(post.likes.includes(currentUser._id));
+  }, [currentUser._id, post.likes]);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -28,6 +34,11 @@ const Post = ({ post }) => {
   // console.log('User', user);
 
   const likeHandler = () => {
+    try {
+      fetchUrl.put('/posts/' + post._id + '/like', { userId: currentUser._id });
+    } catch (err) {
+      console.log(err);
+    }
     setLike(isLiked ? like - 1 : like + 1);
     setIsLiked(!isLiked);
   };
