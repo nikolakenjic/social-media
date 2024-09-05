@@ -5,7 +5,7 @@ import { hashedPassword } from '../utils/passwordEncrypted.js';
 
 // Get user
 const getUser = async (req, res, next) => {
-  console.log(typeof req.params.id);
+  // console.log(typeof req.params.id);
   try {
     const user = await User.findById(req.params.id);
 
@@ -19,6 +19,7 @@ const getUser = async (req, res, next) => {
     next(err);
   }
 };
+
 // Update user
 const updateUser = async (req, res, next) => {
   try {
@@ -45,6 +46,7 @@ const updateUser = async (req, res, next) => {
     next(err);
   }
 };
+
 // Delete User
 const deleteUser = async (req, res, next) => {
   res.send('deleteUser');
@@ -110,6 +112,7 @@ const unFollowUser = async (req, res, next) => {
   }
 };
 
+// Get user by name or ID
 const getUserByNameOrId = async (req, res, next) => {
   const userId = req.query.userId;
   const username = req.query.username;
@@ -130,6 +133,30 @@ const getUserByNameOrId = async (req, res, next) => {
   }
 };
 
+// Get Friends
+const getFriends = async (req, res, next) => {
+  try {
+    const user = await User.findById(req.params.userId);
+    const friends = await Promise.all(
+      user.followings.map((friendId) => {
+        return User.findById(friendId);
+      })
+    );
+
+    let friendList = [];
+
+    friends.map((friend) => {
+      const { _id, username, profilePicture } = friend;
+      friendList.push({ _id, username, profilePicture });
+    });
+
+    res.status(StatusCodes.OK).json(friendList);
+  } catch (err) {
+    console.error(err);
+    next(err);
+  }
+};
+
 export {
   getUser,
   updateUser,
@@ -137,4 +164,5 @@ export {
   followUser,
   unFollowUser,
   getUserByNameOrId,
+  getFriends,
 };

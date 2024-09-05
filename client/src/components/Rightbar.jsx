@@ -2,8 +2,6 @@ import { Users } from '../../dummyData';
 import Wrapper from '../assets/wrappers/Rightbar';
 
 export default function Rightbar({ user }) {
-  console.log(user);
-
   const HomeRightbar = () => {
     return (
       <>
@@ -64,46 +62,6 @@ export default function Rightbar({ user }) {
               className="rightbarFollowingImg"
             />
             <span className="rightbarFollowingName">John Carters</span>
-          </div>
-          <div className="rightbarFollowing">
-            <img
-              src="../../public/images/findus.png"
-              alt=""
-              className="rightbarFollowingImg"
-            />
-            <span className="rightbarFollowingName">John Carter</span>
-          </div>
-          <div className="rightbarFollowing">
-            <img
-              src="../../public/images/chef.png"
-              alt=""
-              className="rightbarFollowingImg"
-            />
-            <span className="rightbarFollowingName">John Carter</span>
-          </div>
-          <div className="rightbarFollowing">
-            <img
-              src="assets/person/4.jpeg"
-              alt=""
-              className="rightbarFollowingImg"
-            />
-            <span className="rightbarFollowingName">John Carter</span>
-          </div>
-          <div className="rightbarFollowing">
-            <img
-              src="assets/person/5.jpeg"
-              alt=""
-              className="rightbarFollowingImg"
-            />
-            <span className="rightbarFollowingName">John Carter</span>
-          </div>
-          <div className="rightbarFollowing">
-            <img
-              src="assets/person/6.jpeg"
-              alt=""
-              className="rightbarFollowingImg"
-            />
-            <span className="rightbarFollowingName">John Carter</span>
           </div>
         </div>
       </>
