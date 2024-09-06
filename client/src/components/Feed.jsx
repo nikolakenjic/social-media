@@ -26,22 +26,9 @@ const Feed = ({ username }) => {
     fetchData();
   }, [user._id, username]);
 
-  // console.log(posts);
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const res = username
-  //       ? await fetchUrl.get('/posts/profile/' + username)
-  //       : await fetchUrl.get('/posts/timeline/6665671e0d46771264a6732c');
-
-  //     setPosts(res.data.allPosts);
-  //   };
-  //   fetchData();
-  // }, [username]);
-
   return (
     <Wrapper>
-      <Share />
+      {username === user.username && <Share />}
       {posts.map((p) => (
         <Post key={p._id} post={p} />
       ))}
